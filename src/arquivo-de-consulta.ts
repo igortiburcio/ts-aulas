@@ -205,6 +205,44 @@ console.log(pessoa2.processar());
 // Tipos (type) e Interfaces (interface) em TypeScript
 // =============================
 
+/*
+Diferença entre type e interface em TypeScript:
+
+interface:
+- Usada principalmente para descrever a estrutura de objetos (como um contrato para objetos, classes e funções).
+- Permite herança (uma interface pode estender outra interface).
+- Pode ser implementada por classes.
+- Pode ser "mesclada": se você declarar a mesma interface duas vezes, o TypeScript junta as propriedades automaticamente.
+- Ideal para contratos de objetos e programação orientada a objetos (OOP).
+
+Exemplo:
+interface Pessoa {
+  nome: string;
+  idade: number;
+}
+
+---
+
+type:
+- Usado para criar um "apelido" (alias) para qualquer tipo: objetos, tipos primitivos, uniões, interseções, tuplas, etc.
+- Não pode ser implementado por classes.
+- Não pode ser mesclado (se declarar o mesmo type duas vezes, dá erro).
+- Mais flexível para criar tipos complexos (uniões, interseções, tipos primitivos, etc).
+
+Exemplo:
+type Animal = {
+  nome: string;
+  especie: string;
+}
+type ID = string | number; // união de tipos
+
+---
+Resumo prático:
+- Use interface para descrever objetos e contratos em OOP.
+- Use type para criar aliases de tipos, uniões, interseções ou quando precisar de mais flexibilidade.
+- Para objetos simples, ambos funcionam quase igual!
+*/
+
 // Interface: define a estrutura de um objeto, muito usada para contratos e orientação a objetos.
 interface Animal {
     nome: string;

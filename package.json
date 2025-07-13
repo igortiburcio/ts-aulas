@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "start": "bun run src/main.ts"
+  },
+  "name": "bun-random",
+  "module": "src/main.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "firebase": "^11.10.0",
+    "node-xlsx": "^0.24.0",
+    "xlsx": "^0.18.5"
+  }
+}

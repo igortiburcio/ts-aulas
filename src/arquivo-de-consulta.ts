@@ -1,4 +1,30 @@
+// =============================
+// Tipos Primitivos em TypeScript
+// =============================
+// TypeScript possui vários tipos primitivos:
+// string: texto
+let texto: string = "Olá, mundo!";
+// number: números inteiros ou decimais
+let numero: number = 42;
+// boolean: verdadeiro ou falso
+let verdadeiro: boolean = true;
+// null: valor nulo (ausência de valor)
+let nulo: null = null;
+// undefined: valor indefinido (não inicializado)
+let indefinido: undefined = undefined;
+// any: pode ser qualquer tipo (evite usar, pois perde a segurança do TypeScript)
+let qualquerValor: any = "pode ser qualquer coisa";
+qualquerValor = 10;
+// unknown: tipo desconhecido, precisa ser checado antes de usar
+let valorDesconhecido: unknown = "algo";
+// Exemplo de checagem:
+if (typeof valorDesconhecido === "string") {
+    console.log(valorDesconhecido.toUpperCase());
+}
+
+// =============================
 // Como declarar variáveis
+// =============================
 // Em TypeScript, existem 3 maneiras de declarar variáveis:
 // 1. var
 // 2. let
@@ -9,6 +35,20 @@ let idade = 30;
 const genero = "Masculino";
 
 
+// O typescript tem tipagem forte, ou seja, ele sabe o tipo de cada variável.
+// Isso ajuda a prevenir erros de tipagem.
+// O typescript infere o tipo de uma variável, ou seja, ele sabe o tipo de uma variável sem precisar declarar o tipo.
+// Exemplo:
+let nome2 = "John";
+console.log(typeof nome2); // string
+
+// Entretanto você pode declarar o tipo de uma variável explicitamente.
+// Para fazer isso, basta usar o nome da variável seguido de dois pontos e o tipo.
+// Exemplo:
+
+let nome3: string = "John";
+console.log(typeof nome3); // string
+
 //A diferença entre var e let é que var é uma variável global e let é uma variável local.
 //A diferença entre let e const é que let pode ser reatribuído e const não. CONST é uma variável constante e imutável.
 // Não vale a pena usar var, pois ele é uma variável global e pode ser acessada em qualquer lugar do código. Sempre use let ou const.
@@ -16,6 +56,10 @@ const genero = "Masculino";
 // Para declarar funções, existem 2 maneiras:
 // 1. function
 // 2. arrow function
+
+// =============================
+// Funções em TypeScript
+// =============================
 
 // Função normal, mais parecida com a sintaxe de outras linguagens
 function soma(a: number, b: number): number {
@@ -32,6 +76,10 @@ const somaArrow = (a: number, b: number): number => a + b;
 const somaArrow2 = (a: number, b: number): number => {
     return a + b;
 };
+
+// =============================
+// Loops em TypeScript
+// =============================
 
 // Existem algumas formas de loops.
 // 1. for
@@ -56,6 +104,10 @@ do {
     j++;
 } while (j < 10);
 
+
+// =============================
+// Loops em arrays em TypeScript
+// =============================
 
 // Existem formas especificar para loops em arrays.
 // 1. for of
@@ -148,4 +200,50 @@ const pessoa2 = {
 };
 
 console.log(pessoa2.processar());
+
+// =============================
+// Tipos (type) e Interfaces (interface) em TypeScript
+// =============================
+
+// Interface: define a estrutura de um objeto, muito usada para contratos e orientação a objetos.
+interface Animal {
+    nome: string;
+    idade: number;
+    emitirSom(): void;
+}
+
+const cachorro: Animal = {
+    nome: "Rex",
+    idade: 5,
+    emitirSom() {
+        console.log("Au au!");
+    }
+};
+cachorro.emitirSom();
+
+// Type: pode ser usado para criar aliases de tipos, inclusive tipos primitivos, uniões, interseções, etc.
+type PessoaType = {
+    nome: string;
+    idade: number;
+    genero: string;
+};
+
+const pessoaType: PessoaType = {
+    nome: "Maria",
+    idade: 28,
+    genero: "Feminino"
+};
+
+// Type também pode ser usado para criar tipos mais complexos
+// Exemplo: união de tipos
+
+type Status = "ativo" | "inativo";
+let statusUsuario: Status = "ativo";
+
+// Diferenças principais:
+// - interface é mais usada para objetos e pode ser extendida/implementada (herança, OOP).
+// - type é mais flexível, pode criar aliases para qualquer tipo, não só objetos.
+// - Em muitos casos práticos, ambos funcionam de forma parecida para objetos.
+// - Para tipos primitivos, uniões e interseções, use type.
+// - Para contratos de objetos e OOP, prefira interface.
 

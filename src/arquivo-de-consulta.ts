@@ -3,20 +3,20 @@
 // =============================
 // TypeScript possui vários tipos primitivos:
 // string: texto
-let texto: string = "Olá, mundo!";
+const texto: string = "Olá, mundo!";
 // number: números inteiros ou decimais
-let numero: number = 42;
+const numero: number = 42;
 // boolean: verdadeiro ou falso
-let verdadeiro: boolean = true;
+const verdadeiro: boolean = true;
 // null: valor nulo (ausência de valor)
-let nulo: null = null;
+const nulo: null = null;
 // undefined: valor indefinido (não inicializado)
-let indefinido: undefined = undefined;
+const indefinido: undefined = undefined;
 // any: pode ser qualquer tipo (evite usar, pois perde a segurança do TypeScript)
 let qualquerValor: any = "pode ser qualquer coisa";
 qualquerValor = 10;
 // unknown: tipo desconhecido, precisa ser checado antes de usar
-let valorDesconhecido: unknown = "algo";
+const valorDesconhecido: unknown = "algo";
 // Exemplo de checagem:
 if (typeof valorDesconhecido === "string") {
     console.log(valorDesconhecido.toUpperCase());
@@ -30,8 +30,8 @@ if (typeof valorDesconhecido === "string") {
 // 2. let
 // 3. const
 
-var nome = "John";
-let idade = 30;
+const nome = "John";
+const idade = 30;
 const genero = "Masculino";
 
 
@@ -39,14 +39,14 @@ const genero = "Masculino";
 // Isso ajuda a prevenir erros de tipagem.
 // O typescript infere o tipo de uma variável, ou seja, ele sabe o tipo de uma variável sem precisar declarar o tipo.
 // Exemplo:
-let nome2 = "John";
+const nome2 = "John";
 console.log(typeof nome2); // string
 
 // Entretanto você pode declarar o tipo de uma variável explicitamente.
 // Para fazer isso, basta usar o nome da variável seguido de dois pontos e o tipo.
 // Exemplo:
 
-let nome3: string = "John";
+const nome3: string = "John";
 console.log(typeof nome3); // string
 
 //A diferença entre var e let é que var é uma variável global e let é uma variável local.
@@ -243,7 +243,7 @@ const frutas: {nome: string, preco: number}[] = [
 // 1. reduce() - Reduz o array a um único valor
 const reduced = frutas.reduce((acc, curr) => {
     return {...acc, ...curr};
-}, {})
+}, {});
 console.log(reduced);
 
 // 2. length - Propriedade que retorna o tamanho do array
@@ -431,7 +431,7 @@ const pessoaType: PessoaType = {
 // Exemplo: união de tipos
 
 type Status = "ativo" | "inativo";
-let statusUsuario: Status = "ativo";
+const statusUsuario: Status = "ativo";
 
 // Diferenças principais:
 // - interface é mais usada para objetos e pode ser extendida/implementada (herança, OOP).

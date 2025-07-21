@@ -72,11 +72,11 @@ function hash(value: number, size: number): number {
 // Função principal do programa
 function main() {
     // Cria um array de listas encadeadas (buckets)
-    let arr: LinkedList[] = [];
+    const arr: LinkedList[] = [];
    
     // Inicializa 10 listas encadeadas e adiciona ao array
     for (let i = 0; i < 10; i++) {
-        let list = new LinkedList();
+        const list = new LinkedList();
         arr.push(list);
     }
 

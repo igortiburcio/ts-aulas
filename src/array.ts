@@ -11,7 +11,7 @@ const frutas: {nome: string, preco: number}[] = [
 
 const reduced = frutas.reduce((acc, curr) => {
     return {...acc, ...curr};
-}, {})
+}, {});
 
 console.log(reduced);
 

@@ -1,10 +1,10 @@
 const fn2 = (fn: (item: number) => boolean) => {
     return fn(1);
-}
+};
 
 const fn3 = (item: number) => {
     return item % 2 === 0;
-}
+};
 
 fn2(fn3);
 
@@ -18,7 +18,7 @@ const obj = {
     fn4: (item: number) => {
         return item % 2 === 0;
     }
-}
+};
 
 main(obj);
 

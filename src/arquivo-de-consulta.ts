@@ -78,6 +78,81 @@ const somaArrow2 = (a: number, b: number): number => {
 };
 
 // =============================
+// Arrow Functions Avançadas
+// =============================
+
+// Arrow functions são muito úteis em situações mais avançadas.
+// Vamos ver alguns casos práticos e didáticos:
+
+// 1. ARROW FUNCTIONS COMO PARÂMETROS (CALLBACKS)
+// Imagine que você tem uma função que precisa processar números de forma diferente
+// dependendo da situação. Você pode passar uma função como parâmetro!
+
+// Função que aplica uma operação em um número
+const aplicarOperacao = (numero: number, operacao: (n: number) => number) => {
+    console.log(`Aplicando operação no número ${numero}`);
+    const resultado = operacao(numero);
+    console.log(`Resultado: ${resultado}`);
+    return resultado;
+};
+
+// Diferentes operações usando arrow functions
+const dobrar = (n: number) => n * 2;
+const elevarAoQuadrado = (n: number) => n * n;
+const adicionarCinco = (n: number) => n + 5;
+
+// Usando as funções
+aplicarOperacao(3, dobrar);           // Resultado: 6
+aplicarOperacao(4, elevarAoQuadrado); // Resultado: 16
+aplicarOperacao(10, adicionarCinco);  // Resultado: 15
+
+// 2. ARROW FUNCTIONS EM OBJETOS
+// Arrow functions podem ser propriedades de objetos, muito útil para métodos
+
+const calculadora = {
+    nome: "Calculadora Simples",
+    
+    // Arrow function como método do objeto
+    somar: (a: number, b: number) => {
+        console.log(`Somando ${a} + ${b}`);
+        return a + b;
+    },
+    
+    // Outra arrow function
+    multiplicar: (a: number, b: number) => {
+        console.log(`Multiplicando ${a} × ${b}`);
+        return a * b;
+    },
+    
+    // Arrow function que usa outras propriedades
+    apresentar: () => {
+        console.log("Olá! Eu sou uma calculadora!");
+    }
+};
+
+// Usando os métodos do objeto
+calculadora.apresentar();
+console.log(calculadora.somar(5, 3));      // 8
+console.log(calculadora.multiplicar(4, 7)); // 28
+
+// 3. ARROW FUNCTIONS COM ARRAYS (muito comum!)
+// Arrow functions são perfeitas para trabalhar com arrays
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Filtrar números pares usando arrow function
+const numerosPares = numeros.filter((numero) => numero % 2 === 0);
+console.log("Números pares:", numerosPares); // [2, 4, 6, 8, 10]
+
+// Dobrar todos os números
+const numerosDobrados = numeros.map((numero) => numero * 2);
+console.log("Números dobrados:", numerosDobrados); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+// Encontrar números maiores que 5
+const numerosMaioresQue5 = numeros.filter((numero) => numero > 5);
+console.log("Números > 5:", numerosMaioresQue5); // [6, 7, 8, 9, 10]
+
+// =============================
 // Loops em TypeScript
 // =============================
 
@@ -141,6 +216,86 @@ const forInObj = {
 for (const propriedade in forInObj) {
     console.log(propriedade);
 }
+
+// =============================
+// Arrays e Métodos de Array em TypeScript
+// =============================
+
+// Arrays são estruturas de dados que armazenam múltiplos valores
+// Você pode declarar arrays de diferentes formas:
+
+// Array de objetos com tipagem
+const frutas: {nome: string, preco: number}[] = [
+    {nome: "banana", preco: 1}, 
+    {nome: "maçã", preco: 2}, 
+    {nome: "laranja", preco: 3}, 
+    {nome: "uva", preco: 4}, 
+    {nome: "manga", preco: 5}, 
+    {nome: "mamão", preco: 6}, 
+    {nome: "morango", preco: 7}, 
+    {nome: "melancia", preco: 8}
+];
+
+// =============================
+// Métodos de Array Importantes
+// =============================
+
+// 1. reduce() - Reduz o array a um único valor
+const reduced = frutas.reduce((acc, curr) => {
+    return {...acc, ...curr};
+}, {})
+console.log(reduced);
+
+// 2. length - Propriedade que retorna o tamanho do array
+console.log(frutas.length);
+
+// 3. pop() - Remove o último elemento do array
+frutas.pop();
+console.log(frutas.length);
+
+// 4. push() - Adiciona um elemento no final do array
+frutas.push({nome: "melancia", preco: 8});
+console.log(frutas.length);
+
+// 5. shift() - Remove o primeiro elemento do array
+frutas.shift();
+
+// 6. findIndex() - Encontra o índice de um elemento que satisfaz uma condição
+console.log(frutas.findIndex((item) => item.nome === "maçã"));
+
+// 7. splice() - Remove elementos do array e pode adicionar novos elementos
+// splice(índice, quantidade_a_remover, ...elementos_a_adicionar)
+const spliced = frutas.splice(2, 2);
+console.log(spliced); // elementos removidos
+console.log(frutas); // array modificado
+
+// 8. slice() - Cria uma cópia de uma parte do array (não modifica o original)
+const sliced = frutas.slice(2, 4);
+console.log(sliced); // nova parte do array
+console.log(frutas); // array original inalterado
+
+// =============================
+// Métodos de String relacionados
+// =============================
+
+// Strings também têm métodos similares aos arrays
+const str = "banana";
+console.log(str.slice(2, 4)); // "na"
+console.log(str.length); // 6
+
+// =============================
+// Arrays Multidimensionais
+// =============================
+
+// Arrays podem conter outros arrays (arrays multidimensionais)
+const arrToFlat: number[][] = [
+    [1, 2], 
+    [3, 4], 
+    [5, 6]
+];
+
+// flat() - "Achata" arrays multidimensionais
+console.log(arrToFlat.flat()); // [1, 2, 3, 4, 5, 6]
 
 // O console é uma classe que representa o console/terminal.
 // Ele possui métodos para mostrar mensagens no console/terminal.
